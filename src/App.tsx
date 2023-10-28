@@ -7,6 +7,7 @@ import { Box } from "@chakra-ui/react";
 import { fetchData } from "./lib/fetchData";
 import { Header } from "./components/header";
 import { Body } from "./components/body";
+import { Footer } from "./components/footer";
 
 function App() {
   const empty: responseType = {};
@@ -21,7 +22,7 @@ function App() {
       <Box flex="1" display="flex" flexDir="column">
         <Header data={data} />
         <Body chats={data.chats} />
-        <Box flex="1">Chat Input Section</Box>
+        <Footer />
       </Box>
     );
   }

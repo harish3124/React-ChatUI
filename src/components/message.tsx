@@ -13,7 +13,25 @@ export const Message = (props: props) => {
       className={props.chat.sender.self ? "justify-right" : ""}
     >
       {!props.chat.sender.self && (
-        <Box as="img" borderRadius="full" src={props.chat.sender.image} h="8" />
+        <Box>
+          <Box
+            as="img"
+            borderRadius="full"
+            src={props.chat.sender.image}
+            h="8"
+          />
+          {props.chat.sender.is_kyc_verified && (
+            <Box
+              as="img"
+              src="check-verified-02.svg"
+              zIndex="1"
+              h="4"
+              pos="relative"
+              top="-3"
+              right="-5"
+            />
+          )}
+        </Box>
       )}
       <Box
         maxW="80%"

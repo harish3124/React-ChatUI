@@ -15,12 +15,13 @@ export const Body = (props: props) => {
     <Box
       flex="9"
       px="4"
+      pb="28"
       display="flex"
       gap="6"
       flexDir="column"
       overflow="auto"
     >
-      <Box position="relative" mt="24" mb="6">
+      <Box position="relative" mt="24">
         <Box h="2px" backgroundColor="#B7B7B7" />
         <AbsoluteCenter bg="#FAF9F4" textColor="#B7B7B7" p="2">
           {date}

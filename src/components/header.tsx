@@ -1,10 +1,15 @@
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { responseType } from "../lib/types";
+import { IoArrowBack, IoCreate } from "react-icons/io5";
+import { FaEllipsisV } from "react-icons/fa";
 
 interface props {
   data: responseType;
 }
 export const Header = (props: props) => {
+  const nameList = props.data.name.split(" ");
+  const name = nameList[0] + " " + nameList[2];
+
   return (
     <Box
       display="flex"
@@ -17,10 +22,14 @@ export const Header = (props: props) => {
       borderBottomWidth="2px"
       borderColor="#60606020"
     >
-      <Box>
-        <Heading size="xl">{props.data.name}</Heading>
+      <Box display="flex" alignItems="center" gap="4">
+        <Box as={IoArrowBack} size="1.75rem" />
+        <Heading flex="1" size="xl" mt="2px">
+          {name}
+        </Heading>
+        <Box as={IoCreate} size="1.75rem" />
       </Box>
-      <Box display="flex" gap="3">
+      <Box display="flex" gap="3" alignItems="center">
         <Box
           as="img"
           src="https://fastly.picsum.photos/id/551/160/160.jpg?hmac=DKAZaW3KPwMLhYwnJ-s_NOYKngMXo-nR1pEQzcNCgr0"
@@ -45,7 +54,7 @@ export const Header = (props: props) => {
             </Text>
           </Box>
         </Box>
-        <Box>{/* DropDown */}</Box>
+        <Box as={FaEllipsisV} size="1.25rem" />
       </Box>
     </Box>
   );
