@@ -1,5 +1,3 @@
-import "./App.css";
-
 import { useEffect, useState } from "react";
 import { emptyResp } from "./lib/types";
 import { Box } from "@chakra-ui/react";
