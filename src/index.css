@@ -1,17 +1,17 @@
 #root {
   margin: 0;
-  padding: 1.25rem 1rem 1.25rem 1rem ;
-  background-color: #FAF9F4;
-  color: #141E0D;
+  padding: 1.25rem 1rem 1.25rem 1rem;
+  background-color: #faf9f4;
+  color: #141e0d;
   height: 100vh;
   width: 100vw;
   display: flex;
- }
+}
 
- .text-grey {
-     color: #606060;
- }
+.text-grey {
+  color: #606060;
+}
 
- .text-bold {
-     font-weight: bold;
- }
+.text-bold {
+  font-weight: bold;
+}
