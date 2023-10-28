@@ -10,8 +10,21 @@ interface props {
 }
 export const Body = (props: props) => {
   const time = props.data.chats[0].time.split(" ")[0].split("-");
-  const month = Date(time[2], time[1], time[0]).toLocaleString();
-  const date = `${time[2]} ${month.split(" ")[1]}, ${time[0]}`;
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const date = `${time[2]} ${months[parseInt(time[1]) - 1]}, ${time[0]}`;
 
   let ref: any;
 

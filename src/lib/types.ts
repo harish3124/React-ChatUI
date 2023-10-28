@@ -18,3 +18,36 @@ export interface chatType {
     user_id: string;
   };
 }
+
+export const emptyResp: responseType = {
+  from: "",
+  to: "",
+  status: "",
+  name: "",
+  message: "",
+  chats: [
+    {
+      message: "",
+      id: "",
+      time: "",
+      sender: {
+        self: false,
+        image: "",
+        user_id: "",
+        is_kyc_verified: false,
+      },
+    },
+  ],
+};
+
+export const emptyChat: chatType = {
+  message: "",
+  id: "",
+  time: "",
+  sender: {
+    self: false,
+    image: "",
+    user_id: "",
+    is_kyc_verified: false,
+  },
+};

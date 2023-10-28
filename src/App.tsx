@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { useEffect, useState } from "react";
-import { responseType } from "./lib/types";
+import { emptyResp } from "./lib/types";
 import { Box } from "@chakra-ui/react";
 
 import { fetchData } from "./lib/fetchData";
@@ -10,8 +10,7 @@ import { Body } from "./components/body";
 import { Footer } from "./components/footer";
 
 function App() {
-  const empty: responseType = {};
-  const [data, setData] = useState(empty);
+  const [data, setData] = useState(emptyResp);
   const [isLoading, setIsLoading] = useState(true);
   const [pageCount, setPageCount] = useState(0);
 
