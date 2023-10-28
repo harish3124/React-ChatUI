@@ -1,15 +1,23 @@
-import { Box, AbsoluteCenter } from "@chakra-ui/react";
+import { Box, AbsoluteCenter, Center } from "@chakra-ui/react";
 
-import { chatType } from "../lib/types";
+import { responseType } from "../lib/types";
 import { Message } from "./message";
+import { useEffect } from "react";
 
 interface props {
-  chats: chatType[];
+  data: responseType;
+  pageSetter: () => void;
 }
 export const Body = (props: props) => {
-  const time = props.chats[0].time.split(" ")[0].split("-");
+  const time = props.data.chats[0].time.split(" ")[0].split("-");
   const month = Date(time[2], time[1], time[0]).toLocaleString();
   const date = `${time[2]} ${month.split(" ")[1]}, ${time[0]}`;
+
+  let ref: any;
+
+  useEffect(() => {
+    ref.scrollIntoView({ behavior: "smooth" });
+  }, [props.data]);
 
   return (
     <Box
@@ -21,15 +29,19 @@ export const Body = (props: props) => {
       flexDir="column"
       overflow="auto"
     >
+      <Center as="button" onClick={props.pageSetter}>
+        Load More
+      </Center>
       <Box position="relative" mt="24">
         <Box h="2px" backgroundColor="#B7B7B7" />
         <AbsoluteCenter bg="#FAF9F4" textColor="#B7B7B7" p="2">
           {date}
         </AbsoluteCenter>
       </Box>
-      {props.chats.map((chat, i) => (
+      {props.data.chats.map((chat, i) => (
         <Message chat={chat} key={i} />
       ))}
+      <div ref={(el) => (ref = el)} />
     </Box>
   );
 };

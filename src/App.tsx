@@ -13,16 +13,20 @@ function App() {
   const empty: responseType = {};
   const [data, setData] = useState(empty);
   const [isLoading, setIsLoading] = useState(true);
+  const [pageCount, setPageCount] = useState(0);
+
+  const incrementCount = () => setPageCount(pageCount + 1);
+
   useEffect(() => {
-    fetchData(setData, setIsLoading);
-  }, []);
+    fetchData(setData, setIsLoading, pageCount, data);
+  }, [pageCount]);
 
   if (!isLoading) {
     return (
       <Box flex="1" display="flex" flexDir="column">
         <Header data={data} />
-        <Body chats={data.chats} />
-        <Footer />
+        <Body data={data} pageSetter={incrementCount} />
+        <Footer data={data} dataSetter={setData} />
       </Box>
     );
   }

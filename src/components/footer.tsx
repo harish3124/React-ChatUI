@@ -8,17 +8,18 @@ import {
 import ResizeTextarea from "react-textarea-autosize";
 import { CiPaperplane, CiCamera, CiVideoOn, CiFileOn } from "react-icons/ci";
 import { IoMdAttach } from "react-icons/io";
-import { chatType } from "../lib/types";
+import { responseType } from "../lib/types";
 import { Ref, useState } from "react";
 
 interface props {
-  chats: chatType[];
+  data: responseType;
+  dataSetter: (res: responseType) => void;
 }
 export const Footer = (props: props) => {
   const { isOpen, onToggle } = useDisclosure();
   const [message, setMessage] = useState("");
 
-  let inputRef: Ref;
+  let inputRef: any;
   const newMessage = (e: Event) => {
     e.preventDefault();
     if (message !== "") {
@@ -32,7 +33,10 @@ export const Footer = (props: props) => {
       setMessage("");
       inputRef.value = "";
 
-      // TODO update Chats
+      props.dataSetter({
+        ...props.data,
+        chats: [...props.data.chats, chatObj],
+      });
     }
   };
 
