@@ -1,5 +1,5 @@
 export interface responseType {
-  chat: chatType[];
+  chats: chatType[];
   name: string;
   from: string;
   to: string;
@@ -7,14 +7,14 @@ export interface responseType {
   status: string;
 }
 
-interface chatType {
+export interface chatType {
   id: string;
   message: string;
+  time: string;
   sender: {
     image: string;
     is_kyc_verified: boolean;
     self: boolean;
     user_id: string;
-    time: string;
   };
 }
