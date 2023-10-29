@@ -23,15 +23,16 @@ export const Footer = (props: props) => {
   const newMessage = (e: Event) => {
     e.preventDefault();
     if (message !== "") {
-      emptyChat.message = message;
-      emptyChat.sender.self = true;
+        const newMsg = {...emptyChat}
+      newMsg.message = message
+      newMsg.sender.self = true;
 
       setMessage("");
       inputRef.value = "";
 
       props.dataSetter({
         ...props.data,
-        chats: [...props.data.chats, emptyChat],
+        chats: [...props.data.chats, newMsg],
       });
     }
   };

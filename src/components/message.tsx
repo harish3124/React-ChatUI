@@ -4,6 +4,7 @@ import { chatType } from "../lib/types";
 
 interface props {
   chat: chatType;
+  id: string;
 }
 export const Message = (props: props) => {
   return (
@@ -11,6 +12,7 @@ export const Message = (props: props) => {
       display="flex"
       gap="2"
       className={props.chat.sender.self ? "justify-right" : ""}
+      id={props.id}
     >
       {!props.chat.sender.self && (
         <Box>

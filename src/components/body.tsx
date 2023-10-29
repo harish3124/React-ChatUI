@@ -13,7 +13,6 @@ export const Body = (props: props) => {
     const [prevTop, setPrevTop] = useState(props.data.chats[0]);
 
     const handleScroll = (e: any) => {
-        console.log(e.currentTarget?.scrollTop)
         if (e.currentTarget?.scrollTop === 0) {
             props.pageSetter(props.page + 1);
         }
@@ -41,6 +40,8 @@ export const Body = (props: props) => {
         if (props.data.chats[0] === prevTop) {
             ref.scrollIntoView({ behavior: "smooth" });
         } else {
+            const topRef = document.getElementById("m10")
+            topRef?.scrollIntoView({ behavior: "instant" });
             setPrevTop(props.data.chats[0]);
         }
     }, [props.data]);
@@ -63,7 +64,7 @@ export const Body = (props: props) => {
                 </AbsoluteCenter>
             </Box>
             {props.data.chats.map((chat, i) => (
-                <Message chat={chat} key={i} />
+                <Message chat={chat} key={i} id={"m" + i} />
             ))}
             <div ref={(el) => (ref = el)} />
         </Box>
