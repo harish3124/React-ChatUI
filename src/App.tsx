@@ -14,6 +14,7 @@ function App() {
 
   useEffect(() => {
     fetchData(setData, setIsLoading, pageCount, data);
+    console.log(pageCount)
   }, [pageCount]);
 
   if (!isLoading) {
