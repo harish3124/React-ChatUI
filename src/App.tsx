@@ -12,8 +12,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [pageCount, setPageCount] = useState(0);
 
-  const incrementCount = () => setPageCount(pageCount + 1);
-
   useEffect(() => {
     fetchData(setData, setIsLoading, pageCount, data);
   }, [pageCount]);
@@ -22,7 +20,7 @@ function App() {
     return (
       <Box flex="1" display="flex" flexDir="column">
         <Header data={data} />
-        <Body data={data} pageSetter={incrementCount} />
+        <Body data={data} page={pageCount} pageSetter={setPageCount} />
         <Footer data={data} dataSetter={setData} />
       </Box>
     );
