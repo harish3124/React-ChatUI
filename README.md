@@ -2,4 +2,6 @@
 
 ChatUI made with ReactJs and ChakraUI as a mobile PWA
 
-> Live at [chatui-harish3124.netlify.app](https://chatui-harish3124.netlify.app/)
+> This is a part of my recruitment process as an intern at CoRider
+
+<img src="screenshot.png" alt="screenshot" width="300"/>
